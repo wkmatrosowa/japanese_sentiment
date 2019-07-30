@@ -45,8 +45,8 @@ def JapaneseSentiment():
             sum_hum = sum(suffHumble.values()) + sum(rootsVerbsHumble.values())
 
             find_max = [sum_reg, sum_pol, sum_hon, sum_hum]
-            print("#find_max " + str(find_max))
-            max_sum = max(find_max, key=abs)
+            #print("#find_max " + str(find_max))
+            max_sum = max(find_max)
             if max_sum == 0:
                 print('Невозможно дать ответ')
             elif max_sum == sum_reg:
