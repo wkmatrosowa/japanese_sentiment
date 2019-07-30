@@ -47,7 +47,24 @@ def JapaneseSentiment():
             find_max = [sum_reg, sum_pol, sum_hon, sum_hum]
             #print("#find_max " + str(find_max))
             max_sum = max(find_max)
-            if max_sum == 0:
+
+            counter_reg = 0
+            counter_pol = 0
+            counter_hon = 0
+            counter_hum = 0
+
+            if sum_reg == max_sum:
+                counter_reg = counter_reg + 1
+            if sum_pol == max_sum:
+                counter_pol = counter_pol + 1
+            if sum_hon == max_sum:
+                counter_hon = counter_hon + 1
+            if sum_hum == max_sum:
+                counter_hum = counter_hum + 1
+
+            if counter_reg + counter_pol + counter_hon + counter_hum > 1:
+                print('Невозможно определить тип речи, так как число элементов совпадает')
+            elif max_sum == 0:
                 print('Невозможно дать ответ')
             elif max_sum == sum_reg:
                 print('Это нейтральная речь')
@@ -57,6 +74,8 @@ def JapaneseSentiment():
                 print('Это учтивая речь')
             elif max_sum == sum_hum:
                 print('Это скромная речь')
+            else:
+                print('Определить тип речи в данном предложении пока что невозможно')
 
         except ValueError as v:
             print('Что-то пошло не так')
